@@ -1,5 +1,5 @@
 /*=============================================
-=                 Listing Atributes		      =
+=               Listing Atributes		      =
 =============================================*/
 
 Type         # of links   Owner  Group	 Size   Create/Last_edited   Name
@@ -11,16 +11,16 @@ PERMISIONS
 type   Owner    Group  Others
 d    |  r-x  |  r-x  |  r-x  | .
 
-type:					
-- regular file
-d directory
-l link
-c special file or device file
-s socket
-p named pipe
-b block device
+	type:					
+	- regular file
+	d directory
+	l link
+	c special file or device file
+	s socket
+	p named pipe
+	b block device
 
-Owner, Group, Others:
-r read
-w write
-x execute
+	Owner, Group, Others:
+	r read
+	w write
+	x execute

@@ -1,5 +1,5 @@
-# Set GUI booting default
+# SET GUI BOOTING DEFAULT
 systemctl set-default graphical.target
 
-# Set terminal booting default
+# SET TERMINAL BOOTING DEFAULT
 systemctl set-default multi-user.target

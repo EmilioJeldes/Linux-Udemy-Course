@@ -1,0 +1,23 @@
+/*=============================================
+=               Format Partition              =  
+==============================================*/
+
+
+# FORMAT SPECIFIC PARTITION
+mkfs.exf /dev/partition_name
+	.ext2
+	.ext3
+	.ext4
+	.fat
+
+
+# CHECK PARTITION UUID | TYPE
+blkid /dev/partition_name
+lsblk -f
+
+
+# LABEL PARTITION
+e2label /dev/partition_name /label_name
+
+
+** You can use label name insted of partition name to mount disk using /etc/fstab:

@@ -1,0 +1,20 @@
+/*=============================================
+=                 PARTITIONS                  =
+==============================================*/
+
+# LIST ALL DRIVES:
+fdisk -l
+
+
+# LIST ALL PARTITIONS ON A DRIVE
+fdisk -l /dev/drive_name
+
+
+# CREATE PARTITION:
+fdisk /dev/drive_name
+
+	m (help)
+	p (list of hard drives)
+	n (create partition)
+	w (write changes, save)
+	d (delete partitions)

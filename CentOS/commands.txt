@@ -1,0 +1,121 @@
+/*=============================================
+=                 PARTITIONS                  =
+==============================================*/
+
+# LIST ALL DRIVES:
+fdisk -l
+
+
+# LIST ALL PARTITIONS ON A DRIVE
+fdisk -l /dev/drive_name
+
+
+# CREATE PARTITION:
+fdisk /dev/drive_name
+
+	m (help)
+	p (list of hard drives)
+	n (create partition)
+	w (write changes, save)
+	d (delete partitions)
+
+
+/*=============================================
+=               Format Partition              =  
+==============================================*/
+
+
+# FORMAT SPECIFIC PARTITION
+mkfs.exf /dev/partition_name
+	.ext2
+	.ext3
+	.ext4
+	.fat
+
+
+# CHECK PARTITION UUID | TYPE
+blkid /dev/partition_name
+lsblk -f
+
+
+# LABEL PARTITION
+e2label /dev/partition_name /label_name
+
+
+** You can use label name insted of partition name to mount disk using /etc/fstab:
+
+
+/*=============================================
+=      MOUNT PARTITION TO THE FILE SYSTEM     =          
+==============================================*/
+
+
+# SHOW ALL MOUNTED POINTS
+df -h
+lsblk -f
+
+
+# CREATE DIRECTORY AS MOINTING POINT
+mkdir /directory_name
+
+
+# MOUNT THE DIRECTORY WITH THE ACTUAL PARTITION
+mount /dev/partition_name /directory_name
+
+
+# UPDATE FILE SYSTEM TABLE
+vim /etc/fstab
+
+
+# COLUMS FSTAB
+
+	1. Partition ID (UUID)
+	2. Partition route
+	3. File system route
+	4. Mount options
+	5. Dumping options 0=false, 1=true. Stick to 0
+	6. Check disk option. 0=false, 1=true. Stick to 0 if no system involved
+
+
+/*=============================================
+=           		 Network       			  =
+=============================================*/
+
+
+/*=====  Get Network Interfaces and ips  ======*/
+ 
+
+- Centos 5 or 6
+ifconfig
+
+
+- Centos 7
+ip a
+ip addr
+
+
+/*=====  Set Up/Down Network Interfaces  ======*/
+
+
+# UP
+ifup interface_name
+
+
+# DOWN
+ifdown interface_name
+
+
+/*=============================================
+=            	 Miscellaneous       		  =
+=============================================*/
+
+
+# Name of the computer
+hostname
+
+# Set GUI booting default
+systemctl set-default graphical.target
+
+
+# Set TEXT booting default
+systemctl set-default multi-user.target

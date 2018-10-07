@@ -1,0 +1,30 @@
+/*=============================================
+=      MOUNT PARTITION TO THE FILE SYSTEM     =          
+==============================================*/
+
+
+# SHOW ALL MOUNTED POINTS
+df -h
+lsblk -f
+
+
+# CREATE DIRECTORY AS MOINTING POINT
+mkdir /directory_name
+
+
+# MOUNT THE DIRECTORY WITH THE ACTUAL PARTITION
+mount /dev/partition_name /directory_name
+
+
+# UPDATE FILE SYSTEM TABLE
+vim /etc/fstab
+
+
+# COLUMS FSTAB
+
+	1. Partition ID (UUID)
+	2. Partition route
+	3. File system route
+	4. Mount options
+	5. Dumping options 0=false, 1=true. Stick to 0
+	6. Check disk option. 0=false, 1=true. Stick to 0 if no system involved

@@ -1,0 +1,32 @@
+/*=============================================
+=           		 Network       			  =
+=============================================*/
+
+
+/*=====  Get Network Interfaces and ips  ======*/
+ 
+
+- Centos 5 or 6
+ifconfig
+
+
+- Centos 7
+ip a
+ip addr
+
+
+/*=====  Set Up/Down Network Interfaces  ======*/
+
+
+# UP
+ifup interface_name
+ifconfig interface_name up
+
+
+# DOWN
+ifdown interface_name
+ifconfig interface_name down
+
+
+* install ifconfig
+yum install net-tools

@@ -1,0 +1,80 @@
+/*=============================================
+=                 File Structure		      =
+=============================================*/
+
+/bin:
+
+	Linux commands. In newer versions it's been changed to:
+	/usr/bin or /usr/sbin
+
+
+/boot
+
+	Contains files that aren't used by the operating system,
+	but by it's bootloader
+
+
+/etc
+
+	Additional programs and data file. Configurations.
+
+
+/lib
+
+	C programing library directory
+
+
+/mnt
+
+	Used for mounting network shared filesystem such as: NFS,
+	CIFS or SAMBA
+
+
+/opt
+
+	Optional add-on application
+
+
+/root
+
+	Home directory for root user
+
+
+/sbin
+
+	System binaries
+
+
+/proc
+
+	Running process
+
+
+/tmp
+
+	Temporary directories
+
+
+/home
+
+	User directories. User directories are created inside.
+
+
+/var
+
+	Directory for system logs.
+
+
+/dev
+
+	Contains references to all peripherical hardware
+
+
+/media
+
+	CD room
+
+
+/run
+
+	Companion directory to /var/run

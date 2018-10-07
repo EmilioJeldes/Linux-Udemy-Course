@@ -1,0 +1,10 @@
+HOST ONLY ADAPTER:
+
+	Allows comumnication between your PC and the Virtual Machine
+
+
+BRIDGE ADAPTER:
+
+	Allows comumnication between your PC and the Virtual Machine
+	Allows comumnication to the internet
+

@@ -1,0 +1,5 @@
+config > network > adapter1 :
+	- bridge adapter
+	- en0: Wifi
+	> advanced:
+		- PCnet-FAST III

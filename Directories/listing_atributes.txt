@@ -1,0 +1,26 @@
+/*=============================================
+=                 Listing Atributes		      =
+=============================================*/
+
+Type         # of links   Owner  Group	 Size   Create/Last_edited   Name
+dr-xr-xr-x.       6 	  root   root    4096      Oct  6 18:55      boot
+drwxr-xr-x.      20 	  root   root    3200      Oct  6 21:51      dev
+
+
+PERMISIONS
+type   Owner    Group  Others
+d    |  r-x  |  r-x  |  r-x  | .
+
+type:					
+- regular file
+d directory
+l link
+c special file or device file
+s socket
+p named pipe
+b block device
+
+Owner, Group, Others:
+r read
+w write
+x execute

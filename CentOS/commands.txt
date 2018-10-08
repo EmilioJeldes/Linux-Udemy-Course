@@ -2,6 +2,7 @@
 =                 PARTITIONS                  =
 ==============================================*/
 
+
 # LIST ALL DRIVES:
 fdisk -l
 
@@ -99,10 +100,63 @@ ip addr
 
 # UP
 ifup interface_name
+ifconfig interface_name up
 
 
 # DOWN
 ifdown interface_name
+ifconfig interface_name down
+
+
+* install ifconfig
+yum install net-tools
+
+
+/*=============================================
+=                 SYSTEM INFO                 =
+==============================================*/
+
+
+# Name of the computer (host)
+hostname
+
+
+# KERNEL INFO
+uname
+
+	-a (all)
+	-r (kernel release, version)
+	-v (date of release)
+	-s (name)
+	-i (platform version)
+	-p (processor type)
+
+
+# KERNEL NAME-VERSION
+uname -sr
+
+
+# OPERATIVE SYSTEM INFO  
+
+	# CENTOS
+	cat /etc/centos_release
+
+
+	# REDHAD
+	cat /etc/redhat_release
+
+
+	# UBUNTU
+	cat /etc/os_release
+
+
+# KERNEL MODULES RUNNING
+lsmod
+cat /proc/modules
+
+
+# BIOS INFORMATION
+dmidecode -t bios
 
 
 /*=============================================
@@ -110,12 +164,11 @@ ifdown interface_name
 =============================================*/
 
 
-# Name of the computer
-hostname
-
 # Set GUI booting default
 systemctl set-default graphical.target
 
 
 # Set TEXT booting default
 systemctl set-default multi-user.target
+
+

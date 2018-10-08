@@ -1,5 +1,0 @@
-# SET GUI BOOTING DEFAULT
-systemctl set-default graphical.target
-
-# SET TERMINAL BOOTING DEFAULT
-systemctl set-default multi-user.target

@@ -21,3 +21,5 @@ e2label /dev/partition_name /label_name
 
 
 ** You can use label name insted of partition name to mount disk using /etc/fstab:
+
+

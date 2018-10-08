@@ -2,6 +2,7 @@
 =                 PARTITIONS                  =
 ==============================================*/
 
+
 # LIST ALL DRIVES:
 fdisk -l
 
@@ -18,3 +19,5 @@ fdisk /dev/drive_name
 	n (create partition)
 	w (write changes, save)
 	d (delete partitions)
+
+

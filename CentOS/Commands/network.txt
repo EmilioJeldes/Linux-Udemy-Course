@@ -30,3 +30,5 @@ ifconfig interface_name down
 
 * install ifconfig
 yum install net-tools
+
+

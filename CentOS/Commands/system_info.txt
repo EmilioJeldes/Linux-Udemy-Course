@@ -1,0 +1,47 @@
+/*=============================================
+=                 SYSTEM INFO                 =
+==============================================*/
+
+
+# Name of the computer (host)
+hostname
+
+
+# KERNEL INFO
+uname
+
+	-a (all)
+	-r (kernel release, version)
+	-v (date of release)
+	-s (name)
+	-i (platform version)
+	-p (processor type)
+
+
+# KERNEL NAME-VERSION
+uname -sr
+
+
+# OPERATIVE SYSTEM INFO  
+
+	# CENTOS
+	cat /etc/centos_release
+
+
+	# REDHAD
+	cat /etc/redhat_release
+
+
+	# UBUNTU
+	cat /etc/os_release
+
+
+# KERNEL MODULES RUNNING
+lsmod
+cat /proc/modules
+
+
+# BIOS INFORMATION
+dmidecode -t bios
+
+

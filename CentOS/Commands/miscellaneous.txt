@@ -1,0 +1,13 @@
+/*=============================================
+=            	 Miscellaneous       		  =
+=============================================*/
+
+
+# Set GUI booting default
+systemctl set-default graphical.target
+
+
+# Set TEXT booting default
+systemctl set-default multi-user.target
+
+

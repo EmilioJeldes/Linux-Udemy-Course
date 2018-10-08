@@ -28,3 +28,5 @@ vim /etc/fstab
 	4. Mount options
 	5. Dumping options 0=false, 1=true. Stick to 0
 	6. Check disk option. 0=false, 1=true. Stick to 0 if no system involved
+
+

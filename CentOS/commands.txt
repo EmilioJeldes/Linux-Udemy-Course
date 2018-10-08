@@ -169,6 +169,10 @@ cat /proc/modules
 dmidecode -t bios
 
 
+# FILE SYSTEM CHECK
+fsck /dev/partition_name
+
+
 /*=============================================
 =            	 Miscellaneous       		  =
 =============================================*/

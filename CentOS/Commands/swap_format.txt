@@ -5,6 +5,7 @@
 
 # CREATE SWAP PARTITION
 fdisk /dev/swap_partition_name
+	-t set id to 82
 
 
 # MAKE SWAPP (format as swap memory)
@@ -31,6 +32,7 @@ swapon -s
 
 # CHECK MEMORY INFO (total swap)
 less /proc/meminfo
+free -m
 
 
 # CHECK SWAP IS WORKING

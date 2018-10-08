@@ -24,8 +24,11 @@ fdisk /dev/drive_name
 
 # CREATE GPT PARTITION
 fdisk /dev/drive_name
-g
-n
+	g (only first partition)
+	n
+	number 1-128
+	default
+	+numberM
 
 
 /*=============================================

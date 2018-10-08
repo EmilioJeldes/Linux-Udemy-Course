@@ -31,6 +31,10 @@ fdisk /dev/drive_name
 	+numberM
 
 
+# CHECK PARTITIONS RECOGNIZED FROM MASTER BOOT RECORD
+cat /proc/partitions
+
+
 /*=============================================
 =               Format Partition              =  
 ==============================================*/
@@ -88,6 +92,14 @@ vim /etc/fstab
 	6. Check disk option. 0=false, 1=true. Stick to 0 if no system involved
 
 
+# MOUNT ALL FROM /etc/fstab
+mount -a
+
+
+# UNMOUNT ALL FROM /etc/fstab
+umount -a
+
+
 /*=============================================
 =                 SWAP MEMORY                 =
 ==============================================*/
@@ -125,8 +137,16 @@ less /proc/meminfo
 free -m
 
 
-# CHECK SWAP IS WORKING
+# MOUNT ALL SWAP PARTITIONS
 swapon -a
+
+
+# UNMOUNT ALL SWAP PARTITIONS
+swapoff -a
+
+
+# RESET LINUX KERNEL MASTER BOOT RECORD
+partprobe
 
 
 /*=============================================

@@ -31,3 +31,7 @@ fdisk /dev/drive_name
 	+numberM
 
 
+# CHECK PARTITIONS RECOGNIZED FROM MASTER BOOT RECORD
+cat /proc/partitions
+
+

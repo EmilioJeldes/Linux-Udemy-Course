@@ -35,7 +35,15 @@ less /proc/meminfo
 free -m
 
 
-# CHECK SWAP IS WORKING
+# MOUNT ALL SWAP PARTITIONS
 swapon -a
+
+
+# UNMOUNT ALL SWAP PARTITIONS
+swapoff -a
+
+
+# RESET LINUX KERNEL MASTER BOOT RECORD
+partprobe
 
 

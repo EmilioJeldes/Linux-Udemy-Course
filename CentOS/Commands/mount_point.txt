@@ -30,3 +30,11 @@ vim /etc/fstab
 	6. Check disk option. 0=false, 1=true. Stick to 0 if no system involved
 
 
+# MOUNT ALL FROM /etc/fstab
+mount -a
+
+
+# UNMOUNT ALL FROM /etc/fstab
+umount -a
+
+

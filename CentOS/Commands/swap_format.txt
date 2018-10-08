@@ -1,0 +1,39 @@
+/*=============================================
+=                 SWAP MEMORY                 =
+==============================================*/
+
+
+# CREATE SWAP PARTITION
+fdisk /dev/swap_partition_name
+
+
+# MAKE SWAPP (format as swap memory)
+mkswap /dev/swap_partition_name
+
+
+# MOUNT SWAP PARTITION
+swapon /dev/swap_partition_name
+
+
+# UNMOUNT SWAP PARTITION
+swapoff /dev/swap_partition_name
+
+
+# UPDATE FILE SYSTEM TABLE
+vim /etc/fstab
+"/dev/swap_partition_name swap swap defaults 0 0"
+
+
+# CHECK SWAP MOUNTING POINTS
+cat /proc/swaps
+swapon -s
+
+
+# CHECK MEMORY INFO (total swap)
+less /proc/meminfo
+
+
+# CHECK SWAP IS WORKING
+swapon -a
+
+

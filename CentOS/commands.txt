@@ -173,6 +173,10 @@ dmidecode -t bios
 fsck /dev/partition_name
 
 
+# CHECK MEMORY INFO (total swap)
+less /proc/meminfo
+
+
 /*=============================================
 =            	 Miscellaneous       		  =
 =============================================*/

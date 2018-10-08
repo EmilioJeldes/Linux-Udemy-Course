@@ -16,3 +16,4 @@ yum install gcc kernel-devel kernel-headers dkms make bzip2 perl
 
 Devices > Insert Guess Additions cd images > run
 
+

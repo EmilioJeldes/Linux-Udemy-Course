@@ -19,5 +19,12 @@ fdisk /dev/drive_name
 	n (create partition)
 	w (write changes, save)
 	d (delete partitions)
+	g (create gpt partition table)
+
+
+# CREATE GPT PARTITION
+fdisk /dev/drive_name
+g
+n
 
 

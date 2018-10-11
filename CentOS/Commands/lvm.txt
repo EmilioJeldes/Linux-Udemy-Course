@@ -1,0 +1,56 @@
+/*=============================================
+=         LVM (logical volume management)     =        
+==============================================*/
+
+
+LVM -> Volumen (2 partitions +)
+
+1. ADD HDD TO VM
+2. CREATE 2 PARTITIONS+
+	- LABEL PARTITIONS (8e)
+3. CREATE LVM STRUCTURE
+	- PHYSICAL VOLUME (PV)
+	pvcreate /dev/partition_name /dev/partition_name2
+	- VOLUME GROUP (VG) -> PV + PV + PV ... +n -> CREATE PARTITIONS INSIDE VG TO CREATE LOGIC VOMUNE
+	* El sistema operativo no lo reconoce, para que si lo reconozca tengo que crear el volumen logico
+	vgcreate name /dev/physical_volumen1 /dev/physical_volumen2
+	vgcreate -s size /dev/physical_volumen1 /dev/physical_volumen2
+
+	PE = physical extent
+	VOlume logic asigned from PE
+
+	# Check volumen GROUP
+	vgdisplay name
+	- LOGICAL VOLUME (LV)
+	lvcreate -n <name> -l <CantidadPE> <volume_group_name>
+					   -L <Tamaño_Fijo> <volume_group_name>
+
+	check volume
+	lvdisplay /dev/<VG>/<LV>
+	
+	se crea:
+	/dev/<VG>/<LV>
+
+	lvcreate -n linux -L 200M inacap
+
+4. FORMAT LVM
+	mkfs.xfs /dev/<VG>/<LV>
+	mkfs.xfs /dev/inacap/linux
+5. CREATE MOUNT POINT
+	mount /dev/<VG>/<LV> /dir_name
+	mount /dev/inacap/linux /volume
+6. BOUND TO FSTAB
+	/dev/<VG>/<LV>
+
+
+Remove
+
+umount /Volumen
+lvremove /dev/inacap/linux
+vgremove inacap
+pvremove /dev/sdb1 /dev/sdb2
+	wiped, not removed 
+vim /etc/fstab
+
+
+

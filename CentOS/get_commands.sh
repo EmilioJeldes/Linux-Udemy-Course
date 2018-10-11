@@ -7,3 +7,4 @@ cat ./Commands/swap_format.txt >> commands.txt
 cat ./Commands/network.txt >> commands.txt
 cat ./Commands/system_info.txt >> commands.txt
 cat ./Commands/miscellaneous.txt >> commands.txt
+cat ./Commands/lvm.txt >> commands.txt

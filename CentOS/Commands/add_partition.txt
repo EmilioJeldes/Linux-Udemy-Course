@@ -34,4 +34,8 @@ fdisk /dev/drive_name
 # CHECK PARTITIONS RECOGNIZED FROM MASTER BOOT RECORD
 cat /proc/partitions
 
+*** IF PARTITIONS ARE NOT IN RECOGNIZED
+partprobe
+
+
 

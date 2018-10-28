@@ -2,12 +2,16 @@
 yum update
 
 
+# Install GUI
+yum groupinstall "GNOME Desktop" "Graphical Administration Tools"
+
+
 # Update kernel
 yum install kernel*
 
 
 # add packages
-rpm -Uhv  https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+rpm -Uhv https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
 
 
 # install
@@ -15,5 +19,5 @@ yum install gcc kernel-devel kernel-headers dkms make bzip2 perl
 
 
 Devices > Insert Guess Additions cd images > run
-
+https://github.com/EmilioJeldes/Linux-Udemy-Course.git
 

@@ -3,16 +3,17 @@
 ==============================================*/
 
 
-LVM -> Volumen (2 partitions +)
-
 1. ADD HDD TO VM
 2. CREATE 2 PARTITIONS+
 	- LABEL PARTITIONS (8e)
 3. CREATE LVM STRUCTURE
-	- PHYSICAL VOLUME (PV)
+	
+	a. PHYSICAL VOLUME (PV)
 	pvcreate /dev/partition_name /dev/partition_name2
-	- VOLUME GROUP (VG) -> PV + PV + PV ... +n -> CREATE PARTITIONS INSIDE VG TO CREATE LOGIC VOMUNE
-	* El sistema operativo no lo reconoce, para que si lo reconozca tengo que crear el volumen logico
+	b. VOLUME GROUP (VG) -> PV + PV + PV ... +n -> CREATE PARTITIONS INSIDE VG TO CREATE LOGIC VOMUNE
+		note*
+		The operative system it's not aware of the volume group. To do so, you must create a Logic Volume 
+		El sistema operativo no lo reconoce, para que si lo reconozca tengo que crear el volumen logico
 	vgcreate name /dev/physical_volumen1 /dev/physical_volumen2
 	vgcreate -s size /dev/physical_volumen1 /dev/physical_volumen2
 
@@ -52,5 +53,15 @@ pvremove /dev/sdb1 /dev/sdb2
 	wiped, not removed 
 vim /etc/fstab
 
+
+/*=====  EXTEND VOLUME GROUP  ======*/
+
+
+1. Create a physical volume from a new partition
+pvcreate /dev/partition_name
+
+
+2. Add the physical volume created (1) to the volume group
+vgextend volume_group_name /dev/partition_name
 
 

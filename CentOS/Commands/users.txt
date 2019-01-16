@@ -1,0 +1,24 @@
+usuario:!!:17842:/:99999:7:::
+17842 = dia 
+primer dia = 01/01/1970
+segundo dia = 02/01/1970
+chage -l usuario
+
+/etc/passwd 
+
+/etc/shadow => chage:
+						-l Listar
+						-m dias mínimos
+						-M días máximos
+						-W días de advetencia
+						-I Dias de inactividad
+						-E Fecha de expiracion
+						-d último día
+
+# Cambiar contraseña
+passwd usuario
+
+chage -m 2 usuario
+
+# Permitir al usuario cambiar la contraseña aun ya cambio 
+chage -d fecha_mismo_dia_ultima_modificacion nomre_usuario

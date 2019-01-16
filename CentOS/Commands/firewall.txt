@@ -1,0 +1,42 @@
+# Install firewalld
+yum install firewalld
+
+
+# Manage status
+systemctl start firewalld
+systemctl restart firewalld
+systemctl stop firewalld
+
+
+/*=============================================
+=                    CONFIG                
+==============================================*/
+
+# List all Zones
+firewall-cmd --list-all-zones
+
+
+# Get default zone (public)
+firewall-cmd --get-default-zone
+
+
+# List services 
+firewall-cmd --list-services
+
+
+# List open ports
+firewall-cmd --list-ports
+
+
+# Add a service to topen default ports
+firewall-cmd --zone=public --permanent --add-service=http
+
+
+# Add specific port
+firewall-cmd --zone=public --permanent --add-port=80/tcp
+
+
+# To save changes needs to be restarded
+firewall-cmd --reload
+systemctl restart firewalld
+

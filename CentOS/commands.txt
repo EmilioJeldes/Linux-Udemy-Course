@@ -34,6 +34,10 @@ fdisk /dev/drive_name
 # CHECK PARTITIONS RECOGNIZED FROM MASTER BOOT RECORD
 cat /proc/partitions
 
+*** IF PARTITIONS ARE NOT IN RECOGNIZED
+partprobe
+
+
 
 /*=============================================
 =               Format Partition              =  
@@ -256,16 +260,17 @@ systemctl set-default multi-user.target
 ==============================================*/
 
 
-LVM -> Volumen (2 partitions +)
-
 1. ADD HDD TO VM
 2. CREATE 2 PARTITIONS+
 	- LABEL PARTITIONS (8e)
 3. CREATE LVM STRUCTURE
-	- PHYSICAL VOLUME (PV)
+	
+	a. PHYSICAL VOLUME (PV)
 	pvcreate /dev/partition_name /dev/partition_name2
-	- VOLUME GROUP (VG) -> PV + PV + PV ... +n -> CREATE PARTITIONS INSIDE VG TO CREATE LOGIC VOMUNE
-	* El sistema operativo no lo reconoce, para que si lo reconozca tengo que crear el volumen logico
+	b. VOLUME GROUP (VG) -> PV + PV + PV ... +n -> CREATE PARTITIONS INSIDE VG TO CREATE LOGIC VOMUNE
+		note*
+		The operative system it's not aware of the volume group. To do so, you must create a Logic Volume 
+		El sistema operativo no lo reconoce, para que si lo reconozca tengo que crear el volumen logico
 	vgcreate name /dev/physical_volumen1 /dev/physical_volumen2
 	vgcreate -s size /dev/physical_volumen1 /dev/physical_volumen2
 
@@ -306,4 +311,153 @@ pvremove /dev/sdb1 /dev/sdb2
 vim /etc/fstab
 
 
+/*=====  EXTEND VOLUME GROUP  ======*/
+
+
+1. Create a physical volume from a new partition
+pvcreate /dev/partition_name
+
+
+2. Add the physical volume created (1) to the volume group
+vgextend volume_group_name /dev/partition_name
+
+
+Redes
+
+1. lo -> loopback	 => 127.0.0.1
+		 localgost 
+
+2. enp0s3  -> tarjetas Ethernet => NIC1
+3. enp0s8                          NIC2
+
+4. virbr0
+5. virbr0-nic
+
+Distros antiguas
+eth0, eth... {0, ... n}
+
+En version 7 linux automaticamente asigna el nombre de la tarjeta dependiendo el tipo de instalacion
+enp0s3 (ens33)
+enp0s8 (ens37)
+
+el Link es la direccion mac de la tarjeta:
+	direccion fisica: mac
+	direccion logica: ip
+
+brd (broadcast) => 
+
+inet es la direccion ipv4
+inet6 es la ipv6
+
+ip addr -> liasta todas las interfaces
+ip addr show <NIC> -> ffiltra por la interfaz dada
+ifup <NIC> -> habilita la interfaz
+ifdown <NIC> -> deshabilita interfaz
+
+# Ruta de base de datos de red
+/etc/sysconfig/network-scripts/
+
+* Todas las interfaces tienen su archivo de configuracion
+archivo -> ifcfg-<NIV>
+
+BOOTPROTO = none | static (direccionIp, mascara, puerta enlace) | dhcp
+# Entorno de usuarios
+
+Inicio => .bash_profile
+Durante => .bashrc
+Cierre => .bash_logout
+Historial => .bash_history
+
+# .BASHRC
+
+"Mientras el usuario esta trabajando"
+Maneja toda la informacion de la terminal
+
+-eq = igual
+-ne = distinto
+-gt = mayor que
+-ge = mayor o igual
+-lt = menor que
+-lt = mayor que
+
+
+# Get Timezone
+timedatectl
+
+
+# List Timezones
+timedatectl list-timezones
+timedatectl list-timezones | grep Santiago
+
+
+# Set Timezone
+timedatectl set-timezone America/Santiago
+
+
+# Verify new settings
+date
+ls -l /etc/localtimeusuario:!!:17842:/:99999:7:::
+17842 = dia 
+primer dia = 01/01/1970
+segundo dia = 02/01/1970
+chage -l usuario
+
+/etc/passwd 
+
+/etc/shadow => chage:
+						-l Listar
+						-m dias mínimos
+						-M días máximos
+						-W días de advetencia
+						-I Dias de inactividad
+						-E Fecha de expiracion
+						-d último día
+
+# Cambiar contraseña
+passwd usuario
+
+chage -m 2 usuario
+
+# Permitir al usuario cambiar la contraseña aun ya cambio 
+chage -d fecha_mismo_dia_ultima_modificacion nomre_usuario# Install firewalld
+yum install firewalld
+
+
+# Manage status
+systemctl start firewalld
+systemctl restart firewalld
+systemctl stop firewalld
+
+
+/*=============================================
+=                    CONFIG                
+==============================================*/
+
+# List all Zones
+firewall-cmd --list-all-zones
+
+
+# Get default zone (public)
+firewall-cmd --get-default-zone
+
+
+# List services 
+firewall-cmd --list-services
+
+
+# List open ports
+firewall-cmd --list-ports
+
+
+# Add a service to topen default ports
+firewall-cmd --zone=public --permanent --add-service=http
+
+
+# Add specific port
+firewall-cmd --zone=public --permanent --add-port=80/tcp
+
+
+# To save changes needs to be restarded
+firewall-cmd --reload
+systemctl restart firewalld
 

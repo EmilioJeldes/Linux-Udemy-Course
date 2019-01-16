@@ -1,0 +1,20 @@
+# Entorno de usuarios
+
+Inicio => .bash_profile
+Durante => .bashrc
+Cierre => .bash_logout
+Historial => .bash_history
+
+# .BASHRC
+
+"Mientras el usuario esta trabajando"
+Maneja toda la informacion de la terminal
+
+-eq = igual
+-ne = distinto
+-gt = mayor que
+-ge = mayor o igual
+-lt = menor que
+-lt = mayor que
+
+

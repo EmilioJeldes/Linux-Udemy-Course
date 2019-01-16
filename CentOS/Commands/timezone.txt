@@ -1,0 +1,16 @@
+# Get Timezone
+timedatectl
+
+
+# List Timezones
+timedatectl list-timezones
+timedatectl list-timezones | grep Santiago
+
+
+# Set Timezone
+timedatectl set-timezone America/Santiago
+
+
+# Verify new settings
+date
+ls -l /etc/localtime

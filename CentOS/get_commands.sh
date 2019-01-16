@@ -12,4 +12,5 @@ cat ./Commands/redes.txt >> commands.txt
 cat ./Commands/entorno_usuarios.txt >> commands.txt
 cat ./Commands/timezone.txt >> commands.txt
 cat ./Commands/users.txt >> commands.txt
+cat ./Commands/services.txt >> commands.txt
 cat ./Commands/firewall.txt >> commands.txt

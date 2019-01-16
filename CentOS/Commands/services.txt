@@ -1,0 +1,18 @@
+/*=============================================
+=                   Services                
+==============================================*/
+
+# Start service
+systemctl start service_name
+
+
+# Restart service
+systemctl restart service_name
+
+
+# Stop service
+systemctl stop service_name
+
+
+# Check default service port and Nameº
+grep service_name /etc/services

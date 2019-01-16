@@ -419,7 +419,24 @@ passwd usuario
 chage -m 2 usuario
 
 # Permitir al usuario cambiar la contraseña aun ya cambio 
-chage -d fecha_mismo_dia_ultima_modificacion nomre_usuario# Install firewalld
+chage -d fecha_mismo_dia_ultima_modificacion nomre_usuario/*=============================================
+=                   Services                
+==============================================*/
+
+# Start service
+systemctl start service_name
+
+
+# Restart service
+systemctl restart service_name
+
+
+# Stop service
+systemctl stop service_name
+
+
+# Check default service port and Nameº
+grep service_name /etc/services# Install firewalld
 yum install firewalld
 
 

@@ -16,3 +16,24 @@ systemctl stop service_name
 
 # Check default service port and Nameº
 grep service_name /etc/services
+
+
+# Create a service on /etc/systemd/system
+vim /etc/systemd/system/server.service
+(set user, group, and the script on ExecStart)
+[Unit]
+Description=Crypto currencies api
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/java -jar server.jar
+User=serverd
+Group=serverd
+WorkingDirectory=/srv/server
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+
+2. Reload daemon
+systemctl daemon-reload

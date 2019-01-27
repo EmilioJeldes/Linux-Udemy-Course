@@ -1,0 +1,70 @@
+# Install Mongo
+
+1. Create a /etc/yum.repos.d/mongodb-org-4.0.repo
+vim /etc/yum.repos.d/mongodb-org-4.0.repo
+
+[mongodb-org-4.0]
+name=MongoDB Repository
+baseurl=https://repo.mongodb.org/yum/redhat/$releasever/mongodb-org/4.0/x86_64/
+gpgcheck=1
+enabled=1
+gpgkey=https://www.mongodb.org/static/pgp/server-4.0.asc
+
+
+2. install
+yum install -y mongodb-org
+
+
+# Config super user users
+1. Enter Mongo shell
+mongo
+
+2. Create admin user
+use admin
+db.createUser({
+	user: "admin",
+	pwd: "adminpass",
+	roles: ["readWrite", "dbAdmin"]
+})
+
+
+# Create Database
+use frontend_data
+
+
+# Create Collection
+db.createCollection('name')
+
+
+# Query
+db.coins.find().pretty()
+
+
+# ENABLE AUTHORIZATION AND LISTENING ALL INTERFACES
+1. Configure mongod.conf
+vim /etc/mongod.conf
+
+# network interfaces
+net:
+  port: 27017
+  bindIp: 0.0.0.0
+  
+security:
+  authorization: 'enabled'
+  
+2. Restart service
+systemctl restart mongod
+
+3. Open mongodb port in the firewall
+firewall-cmd --zone=public --permanent add-service=mongodb
+firewall-cmd --reload
+
+
+# Export Data as json
+mongoexport --db test --collection namecollection -u username -p password --out filename.json
+
+
+# Import Data from json
+mongoimport --db test --collection namecollection --file -u username -p password filename.json
+
+

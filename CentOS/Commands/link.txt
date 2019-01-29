@@ -1,0 +1,7 @@
+# Link files
+To create a symlink at /usr/bin/bar which references the original file /opt/foo, use:
+
+ln -s /opt/foo /usr/bin/bar
+
+REF:
+https://askubuntu.com/questions/56339/how-to-create-a-soft-or-symbolic-link

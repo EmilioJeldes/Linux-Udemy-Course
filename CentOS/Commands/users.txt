@@ -1,3 +1,6 @@
+# Adduser 
+sudo adduser
+
 usuario:!!:17842:/:99999:7:::
 17842 = dia 
 primer dia = 01/01/1970
@@ -22,3 +25,4 @@ chage -m 2 usuario
 
 # Permitir al usuario cambiar la contraseña aun ya cambio 
 chage -d fecha_mismo_dia_ultima_modificacion nomre_usuario
+

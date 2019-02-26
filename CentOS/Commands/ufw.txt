@@ -1,0 +1,67 @@
+# Enable and Disable
+sudo ufw enable
+sudo ufw disable
+
+
+# Set verbose mode
+sudo ufw status verbose
+
+
+# Allow and Deny (specific rules)
+- Allow
+sudo ufw allow <port>/<optional: protocol>
+
+example: To allow incoming tcp and udp packet on port 53
+        sudo ufw allow 53
+
+example: To allow incoming tcp packets on port 53
+        sudo ufw allow 53/tcp
+        
+example: To allow incoming udp packets on port 53
+        sudo ufw allow 53/udp
+        
+Allow by Service Name (less /etc/services)
+sudo ufw allow <service name>
+        
+- Deny
+sudo ufw deny <port>/<optional: protocol>
+sudo ufw deny <port>/<optional: protocol>
+
+example: To deny incoming tcp and udp packet on port 53
+        sudo ufw deny 53
+
+example: To deny incoming tcp packets on port 53
+        sudo ufw deny 53/tcp
+        
+example: To deny incoming udp packets on port 53
+        sudo ufw deny 53/udp
+
+Deny by Service Name (less /etc/services)
+sudo ufw deny <service name>
+        
+        
+# Delete Existing Rule
+ex: ufw deny 80/tcp
+sudo ufw delete deny 80/tcp
+
+# Check Firewall Status
+sudo ufw status
+
+output:
+Firewall loaded
+
+To                         Action  From
+--                         ------  ----
+22:tcp                     DENY    192.168.0.1
+22:udp                     DENY    192.168.0.1
+22:tcp                     DENY    192.168.0.7
+22:udp                     DENY    192.168.0.7
+22:tcp                     ALLOW   192.168.0.0/24
+22:udp                     ALLOW   192.168.0.0/24
+
+
+# Logging
+sudo ufw logging on
+sudo ufw logging off
+
+

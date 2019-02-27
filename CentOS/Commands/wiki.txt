@@ -1,0 +1,14 @@
+# Export wiki from gitlab old Repo
+Wiki > Clone Repository
+
+
+# Clone it locally
+git clone wiki-name.wiki.git
+
+
+# cd into it
+cd wiki-name.wiki
+
+
+# Push to the new Repo ( get the wiki repo from the section where you can clone it)
+git push wiki2-name.wiki.git master

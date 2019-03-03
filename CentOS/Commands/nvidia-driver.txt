@@ -1,0 +1,15 @@
+1. After Installing, press e when grub appears on Debian
+
+2. On "linux" line, after "quiet" add: "nomodeset" (without quotes)
+
+3. Start normally
+
+4. As root user (or sudo), open /etc/apt/sources.list and add "contrib non-free" at the end of every repo
+
+5. If there's any "deb cdrom" repo, comment it. Then save it and exit the file.
+
+6. apt update (as root-sudo)
+
+7. apt install nvidia-driver (as root-sudo)
+
+8. Reboot

@@ -1,0 +1,2 @@
+# grep ports
+netstat -tulpn | grep :21

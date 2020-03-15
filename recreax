@@ -1,0 +1,38 @@
+#!/usr/bin/env bash
+
+argument=$1
+echo "Argument $argument"
+
+INDEX_FILE="index.js"
+
+# functions
+create_files() {
+	touch operations.js types.js actions.js utils.js selectors.js reducer.js
+}
+
+create_reducer() {
+	echo "import { combineEpics } from \"redux-observable\";" >$INDEX_FILE
+	echo ""
+	echo "import reducer from \"./reducer\";" >>$INDEX_FILE
+	echo "" >>$INDEX_FILE
+	echo "import"" * ""as ${argument}OPS from \"./operations\";" >>$INDEX_FILE
+	echo "import"" * ""as ${argument}Selectors from \"./selectors\";" >>$INDEX_FILE
+	echo "" >>$INDEX_FILE
+	echo "export { ${argument}OPS, ${argument}Selectors };" >>$INDEX_FILE
+	echo "" >>$INDEX_FILE
+	echo "export const ${argument}Epic = combineEpics();" >>$INDEX_FILE
+	echo "" >>$INDEX_FILE
+	echo "export default reducer;" >>$INDEX_FILE
+}
+
+# MAIN
+if [ "$argument" == "" ]; then
+	echo "First argument must be the state name"
+else
+	echo "Is this location ok ${PWD}/$argument ?"
+	read yes_no
+	if [ $yes_no == "yes" ] || [ $yes_no == "y" ]; then
+		$(create_files)
+		$(create_reducer)
+	fi
+fi
